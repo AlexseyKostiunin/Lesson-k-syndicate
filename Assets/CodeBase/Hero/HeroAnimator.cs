@@ -30,7 +30,7 @@ namespace CodeBase.Hero
             Animator.SetFloat(MoveHash, CharacterController.velocity.magnitude, 0.1f, Time.deltaTime);
         }
 
-        //public bool IsAttacking => State == AnimatorState.Attack;
+        public bool IsAttacking => State == AnimatorState.Attack;
 
         public void PlayHit() => Animator.SetTrigger(HitHash);
         public void PlayAttack() => Animator.SetTrigger(AttackHash);
@@ -39,31 +39,31 @@ namespace CodeBase.Hero
 
         public void EnteredState(int stateHash)
         {
-            //State = StateFor(stateHash);
+            State = StateFor(stateHash);
             StateEntered?.Invoke(State);
         }
 
         public void ExitedState(int stateHash)
         {
-            //StateExit?.Invoke(StateFor(stateHash));
+            StateExit?.Invoke(StateFor(stateHash));
         }
 
-        //private AnimatorState StateFor(int stateHash)
-        //{
-        //    AnimatorState state;
+        private AnimatorState StateFor(int stateHash)
+        {
+            AnimatorState state;
 
-        //    if (stateHash == _idleStateHash)
-        //        state = AnimatorState.Idle;
-        //    else if (stateHash == _attackStateHash)
-        //        state = AnimatorState.Attack;
-        //    else if (stateHash == _walkingStateHash)
-        //        state = AnimatorState.Walking;
-        //    else if (stateHash == _deathStateHash)
-        //        state = AnimatorState.Died;
-        //    else
-        //        state = AnimatorState.Unknown;
+            if (stateHash == _idleStateHash)
+                state = AnimatorState.Idle;
+            else if (stateHash == _attackStateHash)
+                state = AnimatorState.Attack;
+            else if (stateHash == _walkingStateHash)
+                state = AnimatorState.Walking;
+            else if (stateHash == _deathStateHash)
+                state = AnimatorState.Died;
+            else
+                state = AnimatorState.Unknown;
 
-        //    return state;
-        //}
+            return state;
+        }
     }
 }

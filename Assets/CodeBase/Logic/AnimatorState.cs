@@ -1,9 +1,11 @@
-﻿using UnityEngine;
-
-namespace CodeBase.Logic
+﻿namespace CodeBase.Logic
 {
-    public class AnimatorState
+    public enum AnimatorState
     {
-
+        Unknown,
+        Idle,
+        Attack,
+        Walking,
+        Died,
     }
 }
